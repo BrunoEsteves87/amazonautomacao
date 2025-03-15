@@ -29,17 +29,12 @@ jobs:
     - name: Set up JDK
       uses: actions/setup-java@v3
       with:
-        java-version: '11'
+        java-version: '11' # Ajuste conforme a versão necessária
         distribution: 'temurin'
 
-    - name: Debug Maven Dependencies
-      run: mvn dependency:resolve
+    - name: Enable Detailed Maven Output
+      run: mvn clean install -X
 
-    - name: Build with Maven
-      run: mvn clean install
-
-    - name: Run Tests
-      run: mvn test
 
 
     - name: Run Tests
